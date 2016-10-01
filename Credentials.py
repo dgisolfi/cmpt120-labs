@@ -19,19 +19,27 @@ while True:
     passkey = input("enter a strong password: \n")
 
     def checkupcase(passkey):
-        if any(c.isupper() for c in pw):
+        if any(c.isupper() for c in passkey):
             return True
         
-    def checklowercase(pw):
-        return any(c.islower() for c in pw)
-    def checkdigit(pw):
-        return any(x.lower() for x in pw)
+    def checklowercase(passkey):
+        if any(c.islower() for c in passkey):
+            return True
+        
+    def checkdigit(passkey):
+        if any(x.lower() for x in passkey):
+            return True
+
+    upper = checkupcase(passkey)
+    lower = checklowercase(passkey)
+    digit = checkdigit(passkey)
 
     if len(passkey) >= 8:
-        print("true")
-    if checkupcase == True:
-        print("it contains an upercase")
-  
+        length = True
+
+    if upper == True and lower== True and digit == True and length == True:
+        print("your password is strong")
+        break
     else:
-        print("that password is too short, it must be 8 characters or longer")
+        print("Your password is to weak, add numbers, Capitilize letters \nand make it longer to make your pass word stronger")
         continue
