@@ -1,36 +1,48 @@
 colors = ["blue","black","red","yellow","white","gray"]
 
 def showTitle():
-	pass
+	print("Color Preference Evaluator")
 
 def promptForColor():
-	return colors[2]
-
+	global cmd
+	cmd = input("enter the name of a color: ")
+	confirm = input("Are you sure this is the color you would like to enter: ")
+	if confirm == "yes":
+		cmd.upper()
+		cmd.strip()
+		return cmd
+	else:
+		continue
+	
 def confirmColor():
-	return True
+	confirm = input("you entered the color " + cmd + " Is this correct (Y/N)?").upper()
+	if confirm == "Y":
+		return True
+	else:
+		return False
 
 def containsElement():
-	return True
+	if cmd in colors:
+		return True
+	else:
+		return False
 
 def praiseUser():
-	pass
+	print("good")
 
 def ridiculeUser():
-	pass
+	print("bad")
 
 def main():
 	showTitle()
-
+	
 	while True:
-		cmd = input("enter the name of a color: ").lower()
-		confirm = input("Are you sure this is the color you would like to enter: ").lower()
-
-		if confirm == "yes":
-			if cmd in colors:
-				print("good, that is a great color")
-			else:
-				print("bad, why would you choose that color")
-		else:
-			continue
+		color = promptForColor()
+        if (confirmColor(color)):
+            break
+        if (containsElement(colors, color)):
+        	praiseUser()
+        else:
+            ridiculeUser()
 
 main()
