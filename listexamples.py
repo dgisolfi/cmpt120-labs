@@ -1,3 +1,8 @@
+#Into to programing
+#Author: Daniel Gisolfi
+#Date: 10/28/16
+#listexamples.py
+
 colors = ["blue","black","red","yellow","white","gray"]
 
 def showTitle():
@@ -41,7 +46,7 @@ def main():
         if (confirmColor(color)):
             break
         if (containsElement(colors, color)):
-        	praiseUser()
+            praiseUser()
         else:
             ridiculeUser()
 
