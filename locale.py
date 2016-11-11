@@ -11,7 +11,7 @@ class locale:
 		self.isVisited = False
 		self.item = item
 
-	def render(self, description):
+	def render(self):
 		if isVisited == True:
 			self.description == "You have returned to "
 			print(self.description, self.name)
@@ -19,7 +19,7 @@ class locale:
 	def removeItem(self, item):
 		if self.item == item:
 			self.item = None
-	def visit():
+	def visit(self):
 		self.isVisited = True
 
 
