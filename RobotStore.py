@@ -17,11 +17,12 @@ class Products:
         countPrice()
 
     def countPrice(self, cost):
-        self.cost = count * products[prodId].price 
+        self.cost = count * products[prodId].price
+        countRemove()
 
     def countRemove(self):
         if (cash >= self.cost):
-            self.cost -= count 
+            self.stock -= count 
 
 
 products = [
@@ -48,12 +49,13 @@ def main():
         printStock()
 [prodId,count] = map(int,input("Enter product ID and quantity you wish to buy: ").split(" "))
         if products[prodId] >= count:
-            if cash >= products[prodId]:
+            if cash >= products[prodId].cost:
                 products[prodId] -= count
                 cash -= products[prodId] * count
                 print("You purchased", count, products[prodId].name+".")
                 print("You have $",cash,"remaining.")
-else:print("Sorry, you cannot afford that product.") else:print("Sorry, we are sold out of", productNames[prodId])
+            else:print("Sorry, you cannot afford that product.") 
+        else:print("Sorry, we are sold out of", productNames[prodId])
 
 
 
